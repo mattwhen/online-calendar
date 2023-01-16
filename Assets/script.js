@@ -31,11 +31,19 @@ $('#currentDay').text(day.format('MMMM DD, YYYY, 12:00 A'));
 
     // Clear all local storage and existing content in textarea. 
     $('#clearBtn').on('click', function(){
-      localStorage.clear();
+     let warningMsg = confirm('WARNING: Are you sure you want to clear all existing data? \n Click "OK" for YES \n Click "Cancel" for NO');
+      console.log(typeof warningMsg)
+      if (warningMsg == true) {
 
-      $('.description').val(''); 
-
+        localStorage.clear();
+        $('.description').val(''); 
+  
+      }
+    
     });
+
+    // Save All button that saves all the entries in every time block at one time. 
+    // Instead of saving individually. 
 
 
 
@@ -57,7 +65,12 @@ $('#currentDay').text(day.format('MMMM DD, YYYY, 12:00 A'));
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
+
+    
+    
     $('#9 .description').val(localStorage.getItem('9'));
+    $('#10 .description').val(localStorage.getItem('10'));
+    $('#11 .description').val(localStorage.getItem('11'));
 
   //
   // TODO: Add code to display the current date in the header of the page.
