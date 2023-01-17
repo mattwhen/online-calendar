@@ -3,12 +3,47 @@
 // in the html.    
 
 // This informs jQuery to wait until the page finishes rendering to execute any jQuery.
-// Document ready shorthand. Same as $(document).ready(function)
 $(document).ready(function() { 
 
   let day = dayjs();
+
+  function updateTime(){
+    let currentHour = dayjs().hour();
+    console.log($('.time-block'));
+    console.log(currentHour);
+  
+
+  // $('.time-block') => ['block1', 'block2', 'block3']
+  $('.time-block').each(function(){
+    console.log($(this));
+    console.log($(this).attr('id'));
+    let convertId = parseInt($(this).attr('id'));
+    console.log(convertId);
+    // block1, block2, block3
+
+    if (convertId < currentHour) {
+      $(this).removeClass('present');
+      $(this).removeClass('future');
+      $(this).addClass('past');
+    }
+
+    else if (convertId > currentHour) {
+      $(this).removeClass('past');
+      $(this).removeClass('present');
+      $(this).addClass('future');
+    }
+
+    else {
+      $(this).removeClass('past');
+      $(this).removeClass('future');
+      $(this).addClass('present');
+    }
+
+  })}
+  updateTime();
+
 // $('#currentDay').text(day.format('MMMM DD, YYYY, h:mm A'));
-$('#currentDay').text(day.format('MMMM DD, YYYY, 12:00 A'));
+$('#currentDay').text(day.format('MMMM DD, YYYY, h:mm A'));
 
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
