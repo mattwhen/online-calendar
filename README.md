@@ -31,4 +31,7 @@ Big thank you to my tutor Jehun Jung for guiding me in the right path and teachi
 <br><br>
 
 ## <b>Screenshot of live demo<b>
+<br><br>
 
+## <b>Deployed link to application:
+https://mattwhen.github.io/online-calendar/

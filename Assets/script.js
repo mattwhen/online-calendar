@@ -54,7 +54,7 @@ $(document).ready(function() {
   updateTime();
 
 // Displays current time and date on the top of the screen.
-// $('#currentDay').text(day.format('MMMM DD, YYYY, h:mm A'));
+$('#currentDay').text(day.format('MMMM DD, YYYY, h:mm A'));
 
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
