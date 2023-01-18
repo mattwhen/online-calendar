@@ -69,7 +69,7 @@ $('#currentDay').text(day.format('MMMM DD, YYYY, h:mm A'));
     $('.saveBtn').on('click', function(){
       let timeSlot = $(this).parent().attr('id'); 
       let userText = $(this).siblings('.description').val();
-
+      
       
         // Saves content to local storage 
           localStorage.setItem(timeSlot, userText);
