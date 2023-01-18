@@ -8,19 +8,30 @@ $(document).ready(function() {
   let day = dayjs();
 
   function updateTime(){
+    // Saves the current hour to variable. 
     let currentHour = dayjs().hour();
+
+    // The div elements with a class of '.time-block' are stored as an array so we can use .each() method. 
     console.log($('.time-block'));
-    console.log(currentHour);
+    // console.log(currentHour);
   
 
   // $('.time-block') => ['block1', 'block2', 'block3']
+  // Loop through entire array of div elements with a class of time-block.
   $('.time-block').each(function(){
+
     console.log($(this));
     console.log($(this).attr('id'));
-    let convertId = parseInt($(this).attr('id'));
-    console.log(convertId);
-    // block1, block2, block3
 
+    // Using 'this' to select the '.time-block' and convert the value of their id into an Integer. 
+    let convertId = parseInt($(this).attr('id'));
+
+    // Logs all the id's that were converted into an Integer. 
+    console.log(convertId);
+
+    // Conditional statements that check whether the current hour is less than, greater than, or equal to and
+    // then removes all existing classes and adds one single class. 
+    // Background color of each time block changes accordingly based on the variable currentHour. 
     if (convertId < currentHour) {
       $(this).removeClass('present');
       $(this).removeClass('future');
@@ -42,8 +53,8 @@ $(document).ready(function() {
   })}
   updateTime();
 
+// Displays current time and date on the top of the screen.
 // $('#currentDay').text(day.format('MMMM DD, YYYY, h:mm A'));
-$('#currentDay').text(day.format('MMMM DD, YYYY, h:mm A'));
 
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
@@ -56,7 +67,7 @@ $('#currentDay').text(day.format('MMMM DD, YYYY, h:mm A'));
 
   // Add click events on all buttons on page. 
     $('.saveBtn').on('click', function(){
-      let timeSlot = $(this).parent().attr('id'); // Key 
+      let timeSlot = $(this).parent().attr('id'); 
       let userText = $(this).siblings('.description').val();
 
       
